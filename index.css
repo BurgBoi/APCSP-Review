@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Arvo";
-    src: url("resources/Arvo-Regular.ttf");
+    src: url("/resources/Arvo-Regular.ttf");
 }
 
 html {
@@ -15,7 +15,7 @@ body {
     max-width: 750px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
 body > * {
@@ -32,6 +32,10 @@ p {
     font-size: 15px;
 }
 
+P::before {
+    content: " ";
+}
+
 a:hover {
     background-image: linear-gradient(rgba(0, 0, 0, .1) 0 0);
 }
@@ -45,7 +49,7 @@ nav {
 .section {
     border-style: solid;
     border-width: 2px;
-    border-color: #E6E6E6;
+    border-color: #BFBFBF;
     border-radius: 10px;
     padding: 5px;
     margin: 5px 0;
@@ -79,4 +83,36 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip-text {
+    display: none;
+    background-color: #808080;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+
+    position: absolute;
+    z-index: 1;
+    bottom: 120%;
+}
+
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #808080 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    display: inline;
 }

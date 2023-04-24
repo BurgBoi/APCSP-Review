@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "Arvo";
+    src: url("/resources/Arvo-Regular.ttf");
+}
+
+html {
+    font-family: Arvo;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    max-width: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body > * {
+    margin: 5px 0;
+}
+
+fieldset {
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #BFBFBF;
+}
+
+legend {
+    font-size: 20px;
+}
