@@ -25,14 +25,13 @@ body > * {
 h1 {
     font-size: 40px;
     margin: 10px;
-    text-align: center;
 }
 
 p {
-    font-size: 20px;
+    font-size: 18px;
 }
 
-P::before {
+p::before {
     content: " ";
 }
 
@@ -60,7 +59,7 @@ nav {
 }
 
 .section > h1 {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: normal;
     display: inline;
     flex-grow: 1;
