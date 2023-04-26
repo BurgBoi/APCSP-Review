@@ -101,7 +101,7 @@ store3 ← price3</pre>
                 A list is kind of like a sequence of cubbyholes put in a straight line. Each cubbyhole is called an element and has a sticky-note containing a number attached to it, which is called its index. The first cubbyhole in this sequence has an index of 1, the second has an index of 2, the third has 3, and so on. This index is like the cubbyhole's address. Each cubbyhole can also store things like a stack of papers, which is called its value.
             </p>
             <p>
-                This sequence of cubbyholes also is not immutable. New cubbyholes can be added and others can be removed. Cubbyholes can also be inserted between other cubbyholes.
+                This sequence of cubbyholes is also mutable. New cubbyholes can be added and others can be removed. Cubbyholes can also be inserted between other cubbyholes.
             </p>
             <button class="progression">Continue</button>
         </div>
@@ -236,7 +236,8 @@ x ← x / LENGTH(list2)</pre>
         </div>
         <div class="content-section">
             <p>Let's go back to the original problem of finding the cheapest store out of a number of stores.</p>
-            <p>The list <span class="inline-code">storePrices</span> stores each store's price at a corresponding index. store1's price is stored at index 1, store2's price is stored at index 2, and so on.</p>
+            <p>You put each store's price in a list <span class="inline-code">storePrices</span>. The price at index 1 is the price for store1, the price at index 2 is the price for store2, and so on.</p>
+            <p>You make the algorithm below to find the cheapest price in storePrices, but it's missing a piece.</p>
             <pre class="block-code">
 storePrices ← [price1, price2, price3, ...]
 lowestPrice ← storePrice[1]
@@ -249,7 +250,7 @@ FOR EACH price IN storePrices
 }
             </pre>
             <div class="question multiple-choice">
-                <p>What should the missing code segment in the code above be replaced with so that lowestPrice contains the lowest number in storePrices?</p>
+                <p>What should the missing code segment in the code above be replaced with so that lowestPrice contains the lowest price in storePrices?</p>
                 <label for="6:1" class="radio-button"><input type="radio" name="6" id="6:1">price &gt; lowestPrice</label>
                 <label for="6:2" class="radio-button"><input type="radio" name="6" id="6:2">price &lt; lowestPrice</label>
                 <label for="6:3" class="radio-button"><input type="radio" name="6" id="6:3">storePrices[price] &gt; lowestPrice</label>
@@ -261,12 +262,39 @@ FOR EACH price IN storePrices
                 <div class="answer">6:2</div>
                 <div class="explanation">
                     <p>
-                        <span class="inline-code">price &lt; lowestPrice</span> will only return true if the number currently being processed is less than the lowest price of the previously processed list elements.
+                        Only <span class="inline-code">price &lt; lowestPrice</span> will update the lowestPrice when a new low is found.
+                    </p>
+                    <p>
+                        <span class="inline-code">price &gt; lowestPrice</span> will find the greatest number in storePrices, so that is not what we want.
+                    </p>
+                    <p>
+                        <span class="inline-code">price</span> stores an element in the list storePrices, not an element's index, so any solution with <span class="inline-code">storePrices[price]</span> is incorrect.
                     </p>
                 </div>
             </div>
         </div>
         <div class="content-section">
+            <p>
+                Just by using a list instead of individual variables, the algorithm was reduced to a few lines of code from the possibly hundreds for a large number of stores.
+            </p>
+            <p>
+                Not only did using a list reduce code length, but it also allowed the algorithm above to work with any number of stores. No matter how many prices storePrices contains, every price in the list is checked thanks to the FOR loop. Without lists, we would've had to recreate the above algorithm for any specific number of stores.
+            </p>
+            <p>
+                More abstractly, the algorithm you just created above finds the minimum value in a list.
+            </p>
+            <button class="progression">Continue</button>
+        </div>
+        <div class="content-section">
+            <p>
+                But wait, the algorithm only outputs a price, not the index at which the price is stored!
+            </p>
+        </div>
+        <div class="content-section">
+            <p>
+                Using this handy-dandy algorithm, you can now find the store selling your favorite item for the lowest price.
+            </p>
+            <a href="/sections/summaries/3-10.html" class="button-link">Summary Notes</a>
             <a href="/index.html" class="button-link">Finish Lesson</a>
         </div>
     </body>
