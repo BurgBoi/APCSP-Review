@@ -129,7 +129,7 @@ list1[element + 1] ← list2[element + list1[2]]
                 <p>What does list1 store after running the code above?</p>
                 <label for="4:1" class="radio-button"><input type="radio" name="4" id="4:1">[1, 8, 0, 29, 2]</label>
                 <label for="4:2" class="radio-button"><input type="radio" name="4" id="4:2">[23, 0, 8, 9, 9]</label>
-                <label for="4:4" class="radio-button"><input type="radio" name="4" id="4:3">[1, 4, 0, 29, 2]</label>
+                <label for="4:3" class="radio-button"><input type="radio" name="4" id="4:3">[1, 4, 0, 29, 2]</label>
                 <label for="4:4" class="radio-button"><input type="radio" name="4" id="4:4">[9, 4, 0, 29, 2]</label>
                 <div>
                     <button class="progression" disabled>Submit</button>
@@ -144,10 +144,127 @@ list1[element + 1] ← list2[element + list1[2]]
         </div>
         <div class="content-section">
             <p>
-                Values can be inserted into a list at an index by shifting every element
+                There are also other list operations.
             </p>
-            <p>Work in progress!</p>
+            <ul>
+                <li>
+                    <span class="inline-code">LENGTH(list)</span>
+                    <ul>
+                        <li>
+                            Returns the number of elements in a list.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="inline-code">FOR EACH value IN list {}</span>
+                    <ul>
+                        <li>
+                            Iterates through every element in a list from start to finish, assigning <span class="inline-code">value</span> to an element in the list each iteration.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="inline-code">INSERT(list, index, value)</span>
+                    <ul>
+                        <li>
+                            Shifts all elements with an index greater than or equal to <span class="inline-code">index</span> up 1 index and gives the element located at <span class="inline-code">index</span> a value of <span class="inline-code">value</span>.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="inline-code">APPEND(list, value)</span>
+                    <ul>
+                        <li>
+                            Adds a value to the end of a list.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="inline-code">REMOVE(list, index)</span>
+                    <ul>
+                        <li>
+                            Removes the element located at <span class="inline-code">index</span> and shifts all elements after that index down 1.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Let's get some practice with these concepts.</p>
             <button class="progression">Continue</button>
+        </div>
+        <div class="content-section">
+            <pre class="block-code">
+list1 ← [1, 4, 0, 29, 2]
+list2 ← [23, 0, 8, 9, 9]
+FOR EACH number IN list1
+{
+    APPEND(list2, number)
+    REMOVE(list2, 1)
+}
+INSERT(list2, 3, 4);
+x ← 0
+FOR EACH number IN list2
+{
+    x ← x + number
+}
+x ← x / LENGTH(list2)</pre>
+            <div class="question multiple-choice">
+                <p>What does <span class="inline-code">x</span> store, rounded to the nearest tenth, after running the code above?</p>
+                <label for="5:1" class="radio-button"><input type="radio" name="5" id="5:1">7.2</label>
+                <label for="5:2" class="radio-button"><input type="radio" name="5" id="5:2">9.8</label>
+                <label for="5:3" class="radio-button"><input type="radio" name="5" id="5:3">6.7</label>
+                <label for="5:4" class="radio-button"><input type="radio" name="5" id="5:4">8</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">5:3</div>
+                <div class="explanation">
+                    <p>
+                        The first FOR loop appends each value in list1 to the end of list2 and removes the first 5 elements since the loop iterates 5 times—once for every element in list1. list2 now contains <span class="inline-code">[1, 4, 0, 29, 2]</span>.
+                    </p>
+                    <p>
+                        The insertion changes list2 to <span class="inline-code">[1, 4, 4, 0, 29, 2]</span>.
+                    </p>
+                    <p>
+                        The second FOR loop sums all the values in list2. <span class="inline-code">x</span> contains 40 after the loop.
+                    </p>
+                    <p>
+                        Finally, the value of <span class="inline-code">x</span> is divided by the number of elements in list2, assigning x the average of the values in list2: ~6.7.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <p>Let's go back to the original problem of finding the cheapest store out of a number of stores.</p>
+            <p>The list <span class="inline-code">storePrices</span> stores each store's price at a corresponding index. store1's price is stored at index 1, store2's price is stored at index 2, and so on.</p>
+            <pre class="block-code">
+storePrices ← [price1, price2, price3, ...]
+lowestPrice ← storePrice[1]
+FOR EACH price IN storePrices
+{
+    IF (&lt;missing code segment&gt;)
+    {
+        lowestPrice ← price
+    }
+}
+            </pre>
+            <div class="question multiple-choice">
+                <p>What should the missing code segment in the code above be replaced with so that lowestPrice contains the lowest number in storePrices?</p>
+                <label for="6:1" class="radio-button"><input type="radio" name="6" id="6:1">price &gt; lowestPrice</label>
+                <label for="6:2" class="radio-button"><input type="radio" name="6" id="6:2">price &lt; lowestPrice</label>
+                <label for="6:3" class="radio-button"><input type="radio" name="6" id="6:3">storePrices[price] &gt; lowestPrice</label>
+                <label for="6:4" class="radio-button"><input type="radio" name="6" id="6:4">storePrices[price] &lt; lowestPrice</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">6:2</div>
+                <div class="explanation">
+                    <p>
+                        <span class="inline-code">price &lt; lowestPrice</span> will only return true if the number currently being processed is less than the lowest price of the previously processed list elements.
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="content-section">
             <a href="/index.html" class="button-link">Finish Lesson</a>
