@@ -8,46 +8,80 @@
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
     <body>
-        <h1>3.17 Lesson</h1>
+        <h1>3.17 Algorithm Efficiency Lesson</h1>
         <div class="content-section">
-            <p>asd</p>
-            <button class="progression-button">Continue</button>
-        </div>
-        <div class="content-section">
+            <p>
+                Imagine you are doing a research project. You have found a digital library containing every existing published book. You want to find books that contain specific keywords. For example, if you were researching bats, you would probably want to find books containing the keyword "bat". Your computer has a CPU that runs at 3.7 gigahertz.
+            </p>
+            <p>
+                Assume that the words of every book in that library are sorted alphabetically and stored in a list, and you can use a procedure from an API that takes in an index from that list and returns a book corresponding to the word located at that index. Also assume that the &gt; and &lt; operators work on strings by comparing their alphabetical position. You have two different algorithms that can search that list for a keyword.
+            </p>
+            <p>Linear Search</p>
+            <pre class="block-code">
+PROCEDURE linearSearch(list, value)
+{
+    index ← 1
+    REPEAT UNTIL(index &gt; LENGTH(list))
+    {
+        IF(list[index] = value)
+        {
+            RETURN(index)
+        }
+        index ← index + 1
+    }
+}</pre>
+            <p>Binary Search</p>
+            <pre class="block-code">
+PROCEDURE binarySearch(list, value)
+{
+    startIndex ← 1
+    endIndex ← LENGTH(list)
+    REPEAT UNTIL(endIndex &lt; startIndex)
+    {
+        middleIndex ← startIndex + (endIndex - startIndex) / 2
+        middleIndex ← middleIndex - middleIndex % 1
+        IF(list[middleIndex] = value)
+        {
+            RETURN(middleIndex)
+        }
+        ELSE
+        {
+            IF(list[middleIndex] &gt; value)
+            {
+                endIndex ← middleIndex - 1
+            }
+            ELSE
+            {
+                startIndex ← middleIndex + 1
+            }
+        }
+    }
+    RETURN(-1)
+}</pre>
+            <p>
+                Every running of the code segment within the REPEAT UNTIL loops above is considered an "operation".
+            </p>
+            <p>Work in progress!</p>
             <div class="question multiple-choice">
-                <h1>Find the number of operations binary and linear search perform on the following list: [“and”, “because”, “many”, “one”, “with”] while trying to find “with”</h1>
-                <div class="input">
-                    <label for="asd" class="radio-button"><input type="radio" name="1" id="asd">asd</label>
-                    <label for="asd2" class="radio-button"><input type="radio" name="1" id="asd2">asd2</label>
-                    <label for="asd3" class="radio-button"><input type="radio" name="1" id="asd3">asd3</label>
-                    <label for="asd4" class="radio-button"><input type="radio" name="1" id="asd4">asd4</label>
+                <p>How many operations does binary search perform on the list <span class="inline-code">["and", "because", "many", "one", "with"]</span> while trying to find the index of "with"?</p>
+                <label for="4:1" class="radio-button"><input type="radio" name="4" id="4:1">[1, 8, 0, 29, 2]</label>
+                <label for="4:2" class="radio-button"><input type="radio" name="4" id="4:2">[23, 0, 8, 9, 9]</label>
+                <label for="4:4" class="radio-button"><input type="radio" name="4" id="4:3">[1, 4, 0, 29, 2]</label>
+                <label for="4:4" class="radio-button"><input type="radio" name="4" id="4:4">[9, 4, 0, 29, 2]</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
                 </div>
-                <button class="progression-button">Submit</button>
-                <div class="answer">asd4</div>
+                <div class="answer">4:4</div>
                 <div class="explanation">
-                    <p>asd</p>
+                    <p>Since <span class="inline-code">list1[5]</span> retrieves the value 2, <span class="inline-code">list2[list1[5]]</span> is equivalent to <span class="inline-code">list2[2]</span>, which retrieves the value 0. <span class="inline-code">element</span> is assigned this value of 0.</p>
+                    <p>Since <span class="inline-code">list1[2]</span> retrieves the value 4, <span class="inline-code">element + list1[2]</span> evaluates to 4. <span class="inline-code">element + 1</span> also evaluates to 1. Thus, <span class="inline-code">list1[element + 1] ← list2[element + list1[2]]</span> is equivalent to <span class="inline-code">list1[1] ← list2[4]</span>, which assigns the first index of list1 the value located at index 4 in list2.</p>
                 </div>
             </div>
         </div>
         <div class="content-section">
-            <button class="progression-button">Continue</button>
-        </div>
-        <div class="content-section">
-            <div class="question open-ended">
-                <h1>Find the number of operations binary and linear search perform on the following list: [“and”, “because”, “many”, “one”, “with”] while trying to find “with”</h1>
-                <div class="input">
-                    <input type="text" placeholder="Type a number">
-                </div>
-                <button class="progression-button">Submit</button>
-                <div class="answer">asd4</div>
-                <div class="explanation">
-                    <p>asd</p>
-                </div>
-            </div>
-        </div>
-        <div class="content-section">
-            <a href="/index.html" class="progression-button">Finish Lesson</a>
+            <a href="/index.html" class="button-link">Finish Lesson</a>
         </div>
     </body>
-    <script src="./lessons.js"></script>
+    <script src="/sections/interactive.js"></script>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>3.10 Summary Notes</title>
+  <link rel="stylesheet" href="/sections/sections.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <h1>3.11 Binary Search Summary Notes</h1>
+  <p>
+    Binary search is an algorithm that finds an element in a <b>sorted</b> list. It is much more efficient than Linear
+    Search (3.10) because half of a list is eliminated every iteration that the value is not found.
+  </p>
+  <h2>Procedure</h2>
+  <ol>
+    <li>Start at the middle element of a list. If there are 2 middle elements, choose whichever one.</li>
+    <li>
+      Compare the target value to that middle element.
+      <ul>
+        <li>If the value is greater, eliminate the middle element and everything to the left of it.</li>
+        <li>If less, eliminate the middle element and everything to the right.</li>
+        <li>If equal, the target value has been found in the list.</li>
+      </ul>
+    </li>
+    <li>Repeat steps 1-2 until the target value is found, or only 1 value is left and it is not equal to the target value.</li>
+  </ol>
+  <h2>Pseudocode</h2>
+  <pre class="block-code">
+PROCEDURE binarySearch(list, value)
+{
+  startIndex ← 1
+  endIndex ← LENGTH(list)
+  REPEAT UNTIL(endIndex &lt; startIndex)
+  {
+    middleIndex ← startIndex + (endIndex - startIndex) / 2
+    middleIndex ← middleIndex - middleIndex % 1
+    IF(list[middleIndex] = value)
+    {
+      RETURN(middleIndex)
+    }
+    ELSE
+    {
+      IF(list[middleIndex] &gt; value)
+      {
+        endIndex ← middleIndex - 1
+      }
+      ELSE
+      {
+        startIndex ← middleIndex + 1
+      }
+    }
+  }
+  RETURN(-1)
+}</pre>
+  <p>A challenge can be found in <a href="https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/pc/challenge-binary-search">this</a> Khan Academy link.</p>
+  <a href="/index.html" class="button-link">Go Back</a>
+</body>
+
+</html>

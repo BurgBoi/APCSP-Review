@@ -1,22 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>3.10 Summary Notes</title>
-        <link rel="stylesheet" href="/sections/sections.css">
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    </head>
-    <body>
-        <h1>3.10 Lists Summary Notes</h1>
-        <fieldset>
-            <legend>List</legend>
-            Series of values held under a single variable in your code
-        </fieldset>
-        <ul>
-            <li>asd</li>
-            <li>asd <span class="inline-code">list.append("asd")</span></li>
-        </ul>
-        <a href="/index.html" class="progression-button" style="visibility: visible;">Go Back</a>
-    </body>
+
+<head>
+  <meta charset="UTF-8">
+  <title>3.10 Summary Notes</title>
+  <link rel="stylesheet" href="/sections/sections.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <h1>3.10 Lists Summary Notes</h1>
+  <fieldset>
+    <legend>List Definition</legend>
+    A series of ordered values each stored at a specific index
+  </fieldset>
+  <p>
+    Lists allow algorithms to work with any number of inputs without changing the code.
+  </p>
+  <p>
+    <b>NOTE:</b> Pseudocode lists begin at index 1
+  </p>
+  <h2>Using a List</h2>
+  <p>Hover over each item below to learn more.</p>
+  <ul>
+    <li>
+      Creating
+      <ul>
+        <li><span class="inline-code tooltip">list ← []<span class="tooltip-text">Create an empty list</span></span></li>
+        <li><span class="inline-code tooltip">list ← [value1, value2, ...]<span class="tooltip-text">Create a list with values</span></span></li>
+      </ul>
+    </li>
+    <li>
+      Processing
+      <ul>
+        <li><span class="inline-code tooltip">list[index]<span class="tooltip-text">Access an element stored at an index in a list</span></span></li>
+        <li><span class="inline-code tooltip">LENGTH(list)<span class="tooltip-text">Get the length of a list</span></span></li>
+        <li><span class="inline-code tooltip">FOR EACH value IN list<span class="tooltip-text">Iterate through every element of a list</span></span></li>
+      </ul>
+    </li>
+    <li>
+      Altering
+      <ul>
+        <li><span class="inline-code tooltip">list[i] ← value<span class="tooltip-text">Assign a value to a list's index</span></span></li>
+        <li><span class="inline-code tooltip">INSERT(list, index, value)<span class="tooltip-text">Insert a value at an index, shifting all elements after that index to the right</span></span></li>
+        <li><span class="inline-code tooltip">APPEND(list, value)<span class="tooltip-text">Add a value to the end of a list</span></span></li>
+        <li><span class="inline-code tooltip">REMOVE(list, index)<span class="tooltip-text">Remove an element stored at an index from a list, shifting all elements after that index to the left</span></span></li>
+      </ul>
+    </li>
+  </ul>
+  <h2>Linear Search Pseudocode</h2>
+  <pre class="block-code">
+PROCEDURE linearSearch(list, value)
+{
+  index ← 1
+  REPEAT UNTIL(index > LENGTH(list))
+  {
+    IF(list[index] = value)
+    {
+      RETURN(index)
+    }
+    index ← index + 1
+  }
+}</pre>
+  <p>Practice problems can be found in <a href="https://www.khanacademy.org/computing/ap-computer-science-principles/programming-101/lists/e/storing-and-updating-lists">this</a> and <a href="https://www.khanacademy.org/computing/ap-computer-science-principles/programming-101/lists/e/iterating-over-lists-with-loops">this</a> Khan Academy link.</p>
+  <a href="/index.html" class="button-link">Go Back</a>
+</body>
+
 </html>

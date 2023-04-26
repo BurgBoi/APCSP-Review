@@ -1,10 +1,10 @@
 @font-face {
-    font-family: "Arvo";
-    src: url("/resources/Arvo-Regular.ttf");
+    font-family: "Lato";
+    src: url("/resources/Lato-Regular.ttf");
 }
 
 html {
-    font-family: Arvo;
+    font-family: Lato;
     margin: 0;
     padding: 0;
     display: flex;
@@ -29,6 +29,7 @@ h1 {
 
 p {
     font-size: 18px;
+    line-height: 1.5;
 }
 
 p::before {
@@ -112,6 +113,6 @@ nav {
     border-color: #808080 transparent transparent transparent;
 }
 
-.tooltip:hover .tooltip-text {
+.tooltip:hover .tooltip-text:not(:hover) {
     display: inline;
 }
