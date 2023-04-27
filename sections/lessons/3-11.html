@@ -8,7 +8,116 @@
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
     <body>
-        <h1>Coming soon!</h1>
+        <h1>3.11 Binary Search Lesson</h1>
+        <div class="content-section">
+            <h2>How to use lessons</h2>
+            <p>Lessons will guide you through each concept using questions.</p>
+            <p>It is vital to try your best at each question, even if they are difficult. The only way to build understanding and remember things is to actively interact with the concepts, so <b>do not guess answers unless as a last resort</b>.</p>
+            <p>Read everything that is shown to you and do not skip any text sections. Everything has a purpose and will further your understanding.</p>
+            <p>Click continue to continue to the next section.</p>
+            <button class="progression">Continue</button>
+        </div>
+        <div class="content-section">
+            <p>
+                Imagine you are a company manager in 1900. All of your employees have an ID number, which are all stored in a real and physical list and <b>sorted</b> from least to greatest. The first index of that list has the smallest ID number, while the last index has the largest. You have another real and physical list containing names of your employees that is parallel to the ID list. For example, index 1 in the ID list contains the ID for the person whose name is in index 1 of the names list.
+            </p>
+            <p>
+                Your company has 10,000,000 employees, and you need to find the name of the person corresponding to the ID 404 by finding the index of that ID. Remember, the date is 1900 so you can't just use a computer!
+            </p>
+            <p>
+                Going through all the IDs one by one would be impossible; it would take at least a few years to do that. You start your task by picking a random ID in the ID list. You draw the ID 256 which is stored at index 9,000,000 (somehow).
+            </p>
+            <div class="question multiple-choice">
+                <p>How many IDs can you eliminate knowing that ID 256, which is not equal to 404, is stored at index 9,000,000?</p>
+                <label for="1:1" class="radio-button"><input type="radio" name="1" id="1:1">1</label>
+                <label for="1:2" class="radio-button"><input type="radio" name="1" id="1:2">0</label>
+                <label for="1:3" class="radio-button"><input type="radio" name="1" id="1:3">9,000,000</label>
+                <label for="1:4" class="radio-button"><input type="radio" name="1" id="1:4">1,000,000</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <button class="hint-button">Hint</button>
+                    <p class="response"></p>
+                </div>
+                <div class="hint">
+                    <p>Remember, the ID list is sorted!</p>
+                </div>
+                <div class="answer">1:3</div>
+                <div class="explanation">
+                    <p>
+                        Since the ID list is sorted from least to greatest, you know that 404 is within the range of indexes 9,000,001 to 10,000,000 inclusive because 404 is greater than 256.
+                    </p>
+                    <p>
+                        All the numbers stored at the indexes less than 9,000,000 are less than 256 and thus also less than 404. A number that is less than 404 cannot be equal to 404!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <p>How lucky! You just eliminated 9 million possible IDs.</p>
+            <p>
+                You randomly pick another ID between the indexes 9,000,001 and 10,000,000 inclusive, which you know the ID 404 is within. You get the ID 9999 at the index 9,999,560.
+            </p>
+            <div class="question open-ended">
+                <p>How many IDs can you eliminate this time?</p>
+                <input type="text" placeholder="Type a number. Do not use any commas.">
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">441</div>
+                <div class="explanation">
+                    Since 9999 is greater than 404, you know that 404 cannot be at or above the index 9,999,560. The max index is 10,000,000, so \(10,000,000-9,999,559=441\) is the number of IDs you can eliminate.
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <p>Quite unlucky; you only eliminated 441 IDs.</p>
+            <p>With these IDs eliminated, you know that 404 is between the indexes 9,000,001 and 9,999,559 inclusive. You stop randomly choosing IDs as the last random draw only eliminated a small number of them.</p>
+            <div class="question multiple-choice">
+                <p>What index should you draw an ID from to guarantee that you eliminate the largest number of IDs possible?</p>
+                <label for="2:1" class="radio-button"><input type="radio" name="2" id="2:1">9,499,780</label>
+                <label for="2:2" class="radio-button"><input type="radio" name="2" id="2:2">9,499,779</label>
+                <label for="2:3" class="radio-button"><input type="radio" name="2" id="2:3">9,000,002</label>
+                <label for="2:4" class="radio-button"><input type="radio" name="2" id="2:4">9,999,558</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">2:1</div>
+                <div class="explanation">
+                    <p>When you choose an index, you have equal chances of eliminating either the indexes greater than the chosen one or the indexes less than.</p>
+                    <p>Thus, to guarantee that you can always eliminate the most IDs, you should choose the middle most index in range of possible indexes. When you choose the middle index, you're not leaving elimination up to chance: you eliminate the same number of IDs no matter if the ID in the middle index is greater or less than your target ID.</p>
+                    <p>9,499,780 is the middle index in the range 9,000,001 to 9,999,559 inclusive.</p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <p>You find the ID 2041 at the index 9,499,780, eliminating 499780 IDs with an index greater than 9,499,780.</p>
+            <p>The range of possible indexes for the ID 404 is now 9,000,001 and 9,499,779.</p>
+            <div class="question open-ended">
+                <p>What is the middle index in this range?</p>
+                <input type="text" placeholder="Type a number. Do not use commas.">
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">9249890</div>
+                <div class="explanation">
+                    <p>
+                        $$9,000,001+\frac{9,499,779-9,000,001}{2}=9,249,890$$
+                    </p>
+                    <p>
+                        9,249,890 is the middle element.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <p>Repeating the steps of finding the middle index and eliminating half the range of possible IDs, you learn that ID 404 is stored at the index 9,132,401.</p>
+            <p>Retrieving the name located at index 9,132,401 in the names list, you find that John Doe is the name of the employee with ID 404.</p>
+            <a href="/sections/summaries/3-11.html" class="button-link">Summary Notes</a>
+            <a href="/index.html" class="button-link">Finish Lesson</a>
+        </div>
     </body>
     <script src="/sections/interactive.js"></script>
 </html>

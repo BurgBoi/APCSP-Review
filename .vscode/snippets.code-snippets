@@ -18,5 +18,33 @@
 	"inline-code": {
 		"prefix": "incode",
 		"body": "<span class=\"inline-code\">$1</span>"
-	}
+	},
+	"progression-button": {
+		"prefix": "progbut",
+		"body": "<button class=\"progression\">Continue</button>"
+	},
+	"content-section": {
+		"prefix": "contsec",
+		"body": "<div class=\"content-section\">\n    $1\n</div>"
+	},
+	"question": {
+		"prefix": "question",
+		"body": [
+		  "<div class=\"question multiple-choice\">",
+		  "    <p>$2</p>",
+		  "    <label for=\"$1:1\" class=\"radio-button\"><input type=\"radio\" name=\"$1\" id=\"$1:1\">$3</label>",
+		  "    <label for=\"$1:2\" class=\"radio-button\"><input type=\"radio\" name=\"$1\" id=\"$1:2\">$4</label>",
+		  "    <label for=\"$1:3\" class=\"radio-button\"><input type=\"radio\" name=\"$1\" id=\"$1:3\">$5</label>",
+		  "    <label for=\"$1:4\" class=\"radio-button\"><input type=\"radio\" name=\"$1\" id=\"$1:4\">$6</label>",
+		  "    <div>",
+		  "        <button class=\"progression\" disabled>Submit</button>",
+		  "        <p class=\"response\"></p>",
+		  "    </div>",
+		  "    <div class=\"answer\">$7</div>",
+		  "    <div class=\"explanation\">",
+		  "        $8",
+		  "    </div>",
+		  "</div>"
+		]
+	  }
 }

@@ -10,22 +10,30 @@
     <body>
         <h1>3.10 Lists Lesson</h1>
         <div class="content-section">
+            <h2>How to use lessons</h2>
+            <p>Lessons will guide you through each concept using questions.</p>
+            <p>It is vital to try your best at each question, even if they are difficult. The only way to build understanding and remember things is to actively interact with the concepts, so <b>do not guess answers unless as a last resort</b>.</p>
+            <p>Read everything that is shown to you and do not skip any text sections. Everything has a purpose and will further your understanding.</p>
+            <p>Click continue to continue to the next section.</p>
+            <button class="progression">Continue</button>
+        </div>
+        <div class="content-section">
             <p>
                 Imagine you are shopping online for your favorite item. Hundreds of stores sell the same item, but all of them sell for different prices. You want to find the store that sells for the lowest price.
             </p>
             <p>
-                Manually going through all the stores would take hours, so you want to create an algorithm that can quickly find the cheapest store.
+                Manually going through all the stores would take hours, so you create an algorithm that can quickly find the cheapest store.
             </p>
             <button class="progression">Continue</button>
         </div>
         <div class="content-section">
-            Pretend there are only 3 stores to choose from. You store each store's price in a variable.
+            Pretend there are only 3 stores to choose from. You put each store's price in a variable.
             <pre class="block-code">
 store1 ← price1
 store2 ← price2
 store3 ← price3</pre>
             <div class="question multiple-choice">
-                <p>How many IF statements would you need to write in an algorithm to find the store with the cheapest price?</p>
+                <p>What is the minimum number of IF statements you would need in the algorithm to find the store with the cheapest price?</p>
                 <label for="1:1" class="radio-button"><input type="radio" name="1" id="1:1">1</label>
                 <label for="1:2" class="radio-button"><input type="radio" name="1" id="1:2">2</label>
                 <label for="1:3" class="radio-button"><input type="radio" name="1" id="1:3">3</label>
@@ -34,18 +42,18 @@ store3 ← price3</pre>
                     <button class="progression" disabled>Submit</button>
                     <p class="response"></p>
                 </div>
-                <div class="answer">1:3</div>
+                <div class="answer">1:2</div>
                 <div class="explanation">
-                    <p>First, you can compare the prices of store1 and store2, adding 1 IF statement to the algorithm.</p>
-                    <p>You can then compare the cheaper store of the two with store3, adding another IF statement.</p>
-                    <p>Whichever of those two stores is cheaper is the cheapest store, so you would need to write 2 IF statements.</p>
+                    <p>First, you compare the values of <span class="inline-code">store1</span> and <span class="inline-code">store2</span>, adding one IF statement to the algorithm.</p>
+                    <p>You then compare the lesser of the two with <span class="inline-code">store3</span>, adding another IF statement.</p>
+                    <p>Whichever of those two values is lesser is the cheapest price, so you would need a minimum of two IF statements.</p>
                 </div>
             </div>
         </div>
         <div class="content-section">
             <p>You create another variable <span class="inline-code">store4 ← price4</span>.</p>
             <div class="question multiple-choice">
-                <p>How many IF statements would you need to add to your original algorithm for it to work with 4 variables?</p>
+                <p>What is the minimum number of IF statements you would need to add to the algorithm for it to work with 4 variables instead of 3?</p>
                 <label for="2:1" class="radio-button"><input type="radio" name="2" id="2:1">1</label>
                 <label for="2:2" class="radio-button"><input type="radio" name="2" id="2:2">2</label>
                 <label for="2:3" class="radio-button"><input type="radio" name="2" id="2:3">3</label>
@@ -56,14 +64,14 @@ store3 ← price3</pre>
                 </div>
                 <div class="answer">2:1</div>
                 <div class="explanation">
-                    <p>Your original algorithm finds the cheapest store out of the first three: store1, store2, and store3.</p>
-                    <p>Thus, you only need one more IF statement to compare the output of your original algorithm with store4.</p>
+                    <p>The previous algorithm, which works with three values, finds the lowest of three values.</p>
+                    <p>Thus, you only need one more IF statement to compare the output of the previous algorithm with <span class="inline-code">store4</span>.</p>
                 </div>
             </div>
         </div>
         <div class="content-section">
             <div class="question multiple-choice">
-                <p>Suppose you have \(n\) number of stores. How many variables and IF statements would you need to create an algorithm to find the cheapest store out of all of them?</p>
+                <p>Suppose you have \(n\) number of stores. What is the minimum number of variables and IF statements you would need in the algorithm?</p>
                 <label for="3:1" class="radio-button"><input type="radio" name="3" id="3:1">\(2n - 1\)</label>
                 <label for="3:2" class="radio-button"><input type="radio" name="3" id="3:2">\(n\)</label>
                 <label for="3:3" class="radio-button"><input type="radio" name="3" id="3:3">\(n - 1\)</label>
@@ -74,18 +82,18 @@ store3 ← price3</pre>
                 </div>
                 <div class="answer">3:1</div>
                 <div class="explanation">
-                    <p>You would need to create \(n\) variables to store the prices of \(n\) stores.</p>
-                    <p>Each IF statement can eliminate 1 store from being possibly the cheapest. You can eliminate \(n - 1\) stores before having only 1 store left behind. Thus, you would need \(n - 1\) IF statements to find the cheapest store.</p>
+                    <p>You would need to create \(n\) variables to contain the prices of \(n\) stores.</p>
+                    <p>Each IF statement can eliminate one store from being possibly the cheapest. You can eliminate \(n - 1\) stores before having only 1 store left behind. Thus, you would need \(n - 1\) IF statements to find the cheapest store.</p>
                     <p>Adding the number of variables and IF statements together and simplifying, you would need \(2n - 1\) variables and IF statements.</p>
                 </div>
             </div>
         </div>
         <div class="content-section">
             <p>
-                As you just figured out, you would need \(2n - 1\) variables and IF statements to find the cheapest store out of \(n\) stores. If you had 100 stores, you would need 199 variables and IF statements!
+                As you just figured out, you would need \(2n - 1\) variables and IF statements to find the cheapest of \(n\) stores. If you had 100 stores to choose from, you would need 199 variables and IF statements!
             </p>
             <p>
-                Not only can the number of variables and IF statements get out of control, but you would also need to update the algorithm every time the number of stores changes!
+                Not only can the number of variables and IF statements get out of control, but you would also need to recreate the algorithm for every specific number of stores!
             </p>
             <p>
                 Clearly, this can get very unmanagable, so programmers created a structure called lists.
@@ -98,7 +106,7 @@ store3 ← price3</pre>
                 A series of ordered values each stored at a specific integer index
             </fieldset>
             <p>
-                A list is kind of like a sequence of cubbyholes put in a straight line. Each cubbyhole is called an element and has a sticky-note containing a number attached to it, which is called its index. The first cubbyhole in this sequence has an index of 1, the second has an index of 2, the third has 3, and so on. This index is like the cubbyhole's address. Each cubbyhole can also store things like a stack of papers, which is called its value.
+                A list is like a sequence of cubbyholes put in a straight line. Each cubbyhole is called an element and has a sticky-note containing a number attached to it, which is called its index. The first cubbyhole in this sequence has an index of 1, the second has an index of 2, the third has 3, and so on. This index is like the cubbyhole's address. Each cubbyhole can also store things like a stack of papers, which is called its value.
             </p>
             <p>
                 This sequence of cubbyholes is also mutable. New cubbyholes can be added and others can be removed. Cubbyholes can also be inserted between other cubbyholes.
@@ -107,7 +115,7 @@ store3 ← price3</pre>
         </div>
         <div class="content-section">
             <p>
-                A list is created in pseudocode using square brackets <span class="inline-code">[]</span>. Brackets without anything inside them create an empty list. Brackets with values inside them like <span class="inline-code">[value1, value2, value3]</span> create a list already containing values.
+                A list is created in pseudocode using square brackets <span class="inline-code">[]</span>. Brackets without anything inside them create an empty list with no elements inside. Brackets with values inside them like <span class="inline-code">[value1, value2, value3]</span> create a list with values. <span class="inline-code">value1</span> is stored at index 1, <span class="inline-code">value2</span> is stored at index 2, and so on in this bracket notation.
             </p>
             <p>
                 An element in a list can be retrieved by its index. <span class="inline-code">list[index]</span> is pseudocode for retrieving an element stored at <span class="inline-code">index</span>. In pseudocode, the first element of a list has index 1.
@@ -126,7 +134,7 @@ element ← list2[list1[5]]
 list1[element + 1] ← list2[element + list1[2]]
             </pre>
             <div class="question multiple-choice">
-                <p>What does list1 store after running the code above?</p>
+                <p>What does <span class="inline-code">list1</span> contain after running the code above?</p>
                 <label for="4:1" class="radio-button"><input type="radio" name="4" id="4:1">[1, 8, 0, 29, 2]</label>
                 <label for="4:2" class="radio-button"><input type="radio" name="4" id="4:2">[23, 0, 8, 9, 9]</label>
                 <label for="4:3" class="radio-button"><input type="radio" name="4" id="4:3">[1, 4, 0, 29, 2]</label>
@@ -138,7 +146,7 @@ list1[element + 1] ← list2[element + list1[2]]
                 <div class="answer">4:4</div>
                 <div class="explanation">
                     <p>Since <span class="inline-code">list1[5]</span> retrieves the value 2, <span class="inline-code">list2[list1[5]]</span> is equivalent to <span class="inline-code">list2[2]</span>, which retrieves the value 0. <span class="inline-code">element</span> is assigned this value of 0.</p>
-                    <p>Since <span class="inline-code">list1[2]</span> retrieves the value 4, <span class="inline-code">element + list1[2]</span> evaluates to 4. <span class="inline-code">element + 1</span> also evaluates to 1. Thus, <span class="inline-code">list1[element + 1] ← list2[element + list1[2]]</span> is equivalent to <span class="inline-code">list1[1] ← list2[4]</span>, which assigns the first index of list1 the value located at index 4 in list2.</p>
+                    <p>Since <span class="inline-code">list1[2]</span> retrieves the value 4, <span class="inline-code">element + list1[2]</span> evaluates to 4. <span class="inline-code">element + 1</span> also evaluates to 1. Thus, <span class="inline-code">list1[element + 1] ← list2[element + list1[2]]</span> is equivalent to <span class="inline-code">list1[1] ← list2[4]</span>, which assigns the first index of <span class="inline-code">list1</span> the value located at index 4 in <span class="inline-code">list2</span>.</p>
                 </div>
             </div>
         </div>
@@ -151,7 +159,7 @@ list1[element + 1] ← list2[element + list1[2]]
                     <span class="inline-code">LENGTH(list)</span>
                     <ul>
                         <li>
-                            Returns the number of elements in a list.
+                            Returns the number of elements in <span class="inline-code">list</span>.
                         </li>
                     </ul>
                 </li>
@@ -159,7 +167,7 @@ list1[element + 1] ← list2[element + list1[2]]
                     <span class="inline-code">FOR EACH value IN list {}</span>
                     <ul>
                         <li>
-                            Iterates through every element in a list from start to finish, assigning <span class="inline-code">value</span> to an element in the list each iteration.
+                            Iterates through every element in <span class="inline-code">list</span> from start to finish, assigning <span class="inline-code">value</span> to the value of an element in <span class="inline-code">list</span> each iteration.
                         </li>
                     </ul>
                 </li>
@@ -167,7 +175,7 @@ list1[element + 1] ← list2[element + list1[2]]
                     <span class="inline-code">INSERT(list, index, value)</span>
                     <ul>
                         <li>
-                            Shifts all elements with an index greater than or equal to <span class="inline-code">index</span> up 1 index and gives the element located at <span class="inline-code">index</span> a value of <span class="inline-code">value</span>.
+                            Shifts all elements with an index greater than or equal to <span class="inline-code">index</span> up 1 index and sets the element located at <span class="inline-code">index</span> to a value of <span class="inline-code">value</span>.
                         </li>
                     </ul>
                 </li>
@@ -175,7 +183,7 @@ list1[element + 1] ← list2[element + list1[2]]
                     <span class="inline-code">APPEND(list, value)</span>
                     <ul>
                         <li>
-                            Adds a value to the end of a list.
+                            Adds <span class="inline-code">value</span> to the end of <span class="inline-code">list</span>.
                         </li>
                     </ul>
                 </li>
@@ -208,7 +216,7 @@ FOR EACH number IN list2
 }
 x ← x / LENGTH(list2)</pre>
             <div class="question multiple-choice">
-                <p>What does <span class="inline-code">x</span> store, rounded to the nearest tenth, after running the code above?</p>
+                <p>What does <span class="inline-code">x</span> contain, rounded to the nearest tenth, after running the code above?</p>
                 <label for="5:1" class="radio-button"><input type="radio" name="5" id="5:1">7.2</label>
                 <label for="5:2" class="radio-button"><input type="radio" name="5" id="5:2">9.8</label>
                 <label for="5:3" class="radio-button"><input type="radio" name="5" id="5:3">6.7</label>
@@ -220,22 +228,22 @@ x ← x / LENGTH(list2)</pre>
                 <div class="answer">5:3</div>
                 <div class="explanation">
                     <p>
-                        The first FOR loop appends each value in list1 to the end of list2 and removes the first 5 elements since the loop iterates 5 times—once for every element in list1. list2 now contains <span class="inline-code">[1, 4, 0, 29, 2]</span>.
+                        The first FOR loop appends each value in <span class="inline-code">list1</span> to the end of <span class="inline-code">list2</span> and removes the first five elements of <span class="inline-code">list2</span> since the loop iterates 5 times—once for every element in <span class="inline-code">list1</span>. <span class="inline-code">list2</span> now contains <span class="inline-code">[1, 4, 0, 29, 2]</span>.
                     </p>
                     <p>
-                        The insertion changes list2 to <span class="inline-code">[1, 4, 4, 0, 29, 2]</span>.
+                        The insertion changes <span class="inline-code">list2</span> to <span class="inline-code">[1, 4, 4, 0, 29, 2]</span>.
                     </p>
                     <p>
-                        The second FOR loop sums all the values in list2. <span class="inline-code">x</span> contains 40 after the loop.
+                        The second FOR loop sums all the values in <span class="inline-code">list2</span>. <span class="inline-code">x</span> contains 40 after the loop.
                     </p>
                     <p>
-                        Finally, the value of <span class="inline-code">x</span> is divided by the number of elements in list2, assigning x the average of the values in list2: ~6.7.
+                        Finally, the value of <span class="inline-code">x</span> is divided by the number of elements in <span class="inline-code">list2</span>, assigning <span class="inline-code">x</span> the average of the values in <span class="inline-code">list2</span>: ~6.7.
                     </p>
                 </div>
             </div>
         </div>
         <div class="content-section">
-            <p>Let's go back to the original problem of finding the cheapest store out of a number of stores.</p>
+            <p>Let's go back to the original problem of creating an algorithm to find the cheapest store out of a number of stores.</p>
             <p>You put each store's price in a list <span class="inline-code">storePrices</span>. The price at index 1 is the price for store1, the price at index 2 is the price for store2, and so on.</p>
             <p>You make the algorithm below to find the cheapest price in storePrices, but it's missing a piece.</p>
             <pre class="block-code">
@@ -243,7 +251,7 @@ storePrices ← [price1, price2, price3, ...]
 lowestPrice ← storePrice[1]
 FOR EACH price IN storePrices
 {
-    IF (&lt;missing code segment&gt;)
+    IF (&lt;MISSING CODE SEGMENT&gt;)
     {
         lowestPrice ← price
     }
@@ -278,7 +286,7 @@ FOR EACH price IN storePrices
                 Just by using a list instead of individual variables, the algorithm was reduced to a few lines of code from the possibly hundreds for a large number of stores.
             </p>
             <p>
-                Not only did using a list reduce code length, but it also allowed the algorithm above to work with any number of stores. No matter how many prices storePrices contains, every price in the list is checked thanks to the FOR loop. Without lists, we would've had to recreate the above algorithm for any specific number of stores.
+                Not only did using a list reduce code length, but it also allowed the algorithm above to work with any number of stores. No matter how many prices <span class="inline-code">storePrices</span> contains, every price in the list is checked thanks to the FOR loop. Without lists, we would've had to recreate the above algorithm for any specific number of stores.
             </p>
             <p>
                 More abstractly, the algorithm you just created above finds the minimum value in a list.
@@ -289,10 +297,47 @@ FOR EACH price IN storePrices
             <p>
                 But wait, the algorithm only outputs a price, not the index at which the price is stored! We need to know the price's index so that we know at which store we can find such a price.
             </p>
+            <p>
+                The following code shows an algorithm that searches a list for a value and stores that value's index in <span class="inline-code">targetIndex</span>. This is a type of linear search algorithm.
+            </p>
+            <pre class="block-code">
+list ← [value1, value2, value3, ...]
+targetValue ← someValue
+targetIndex ← -1
+index ← 1
+REPEAT UNTIL(index > LENGTH(list))
+{
+    IF(list[index] = targetValue)
+    {
+        targetIndex ← index
+        &lt;MISSING CODE SEGMENT&gt;
+    }
+    index ← index + 1
+}</pre>
+            <div class="question multiple-choice">
+                <p>The algorithm above does redundant computations for some lists and inputs. What should the missing code segment be replaced with so that no redundant computations are made?</p>
+                <label for="7:1" class="radio-button"><input type="radio" name="7" id="7:1">targetValue ← "null"</label>
+                <label for="7:2" class="radio-button"><input type="radio" name="7" id="7:2">REMOVE(list, 1)</label>
+                <label for="7:3" class="radio-button"><input type="radio" name="7" id="7:3">index ← LENGTH(list)</label>
+                <label for="7:4" class="radio-button"><input type="radio" name="7" id="7:4">targetIndex ← LENGTH(list)</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">7:3</div>
+                <div class="explanation">
+                    <p>
+                        Even when the algorithm finds its target value, it keeps iterating through the rest of the list, which adds redundant computations.
+                    </p>
+                    <p>
+                        The only answer that can stop the REPEAT UNTIL loop when the target value is found is <span class="inline-code">index ← LENGTH(list)</span>, which sets <span class="inline-code">index</span> to the length of the list. When 1 is added to <span class="inline-code">index</span> after being set to the length of the list, the value stored in <span class="inline-code">index</span> is greater than the length of the list, so the loop stops.
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="content-section">
             <p>
-                Using this handy-dandy algorithm, you can now find the store selling your favorite item for the lowest price.
+                Using these handy-dandy algorithms, you can now find which store sells your favorite item for the lowest price in mere milliseconds. Say goodbye to those days of meticulously comparing prices by hand!
             </p>
             <a href="/sections/summaries/3-10.html" class="button-link">Summary Notes</a>
             <a href="/index.html" class="button-link">Finish Lesson</a>
