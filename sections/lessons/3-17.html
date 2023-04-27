@@ -10,29 +10,37 @@
     <body>
         <h1>3.17 Algorithm Efficiency Lesson</h1>
         <div class="content-section">
+            <h2>How to use lessons</h2>
+            <p>Lessons will guide you through each concept using questions.</p>
+            <p>It is vital to try your best at each question, even if they are difficult. The only way to build understanding and remember things is to actively interact with the concepts, so <b>do not guess answers unless as a last resort</b>.</p>
+            <p>Read everything that is shown to you and do not skip any text sections. Everything has a purpose and will further your understanding.</p>
+            <p>Click continue to continue to the next section.</p>
+            <button class="progression">Continue</button>
+        </div>
+        <div class="content-section">
             <p>
-                Imagine you are doing a research project. You have found a digital library containing every existing published book. You want to find books that contain specific keywords. For example, if you were researching bats, you would probably want to find books containing the keyword "bat". Your computer has a CPU that runs at 3.7 gigahertz.
+                Imagine you are doing a research project. You have found a digital library containing every existing published book. You want to find books that contain specific keywords. For example, if you were researching bats, you would probably want to find books containing the keyword "bat".
             </p>
             <p>
-                Assume that the words of every book in that library are sorted alphabetically and stored in a list, and you can use a procedure from an API that takes in an index from that list and returns a book corresponding to the word located at that index. Also assume that the &gt; and &lt; operators work on strings by comparing their alphabetical position. You have two different algorithms that can search that list for a keyword.
+                Assume that the words of every book in that library are stored in a list and sorted alphabetically, and you can use a procedure from an API that takes in an index from that list and returns a book corresponding to the word located at that index. Also assume that the &gt; and &lt; operators work on strings by comparing their alphabetical position. You have two different algorithms that can search that list for a keyword's index.
             </p>
-            <p>Linear Search</p>
+            <h2>Linear Search</h2>
             <pre class="block-code">
-PROCEDURE linearSearch(list, value)
+PROCEDURE linearSearch(list, targetValue)
 {
     index ← 1
     REPEAT UNTIL(index &gt; LENGTH(list))
     {
-        IF(list[index] = value)
+        IF(list[index] = targetValue)
         {
             RETURN(index)
         }
         index ← index + 1
     }
 }</pre>
-            <p>Binary Search</p>
+            <h2>Binary Search</h2>
             <pre class="block-code">
-PROCEDURE binarySearch(list, value)
+PROCEDURE binarySearch(list, targetValue)
 {
     startIndex ← 1
     endIndex ← LENGTH(list)
@@ -40,13 +48,13 @@ PROCEDURE binarySearch(list, value)
     {
         middleIndex ← startIndex + (endIndex - startIndex) / 2
         middleIndex ← middleIndex - middleIndex % 1
-        IF(list[middleIndex] = value)
+        IF(list[middleIndex] = targetValue)
         {
             RETURN(middleIndex)
         }
         ELSE
         {
-            IF(list[middleIndex] &gt; value)
+            IF(list[middleIndex] &gt; targetValue)
             {
                 endIndex ← middleIndex - 1
             }
@@ -58,28 +66,337 @@ PROCEDURE binarySearch(list, value)
     }
     RETURN(-1)
 }</pre>
+        <button class="progression">Continue</button>
+        </div>
+        <div class="content-section">
             <p>
-                Every running of the code segment within the REPEAT UNTIL loops above is considered an "operation".
+                An algorithm's efficiency can be determined by counting the number of operations it performs.
             </p>
-            <p>Work in progress!</p>
+            <p>
+                Every iteration of the REPEAT UNTIL loops in the algorithms above is considered an "operation".
+            </p>
             <div class="question multiple-choice">
-                <p>How many operations does binary search perform on the list <span class="inline-code">["and", "because", "many", "one", "with"]</span> while trying to find the index of "with"?</p>
-                <label for="4:1" class="radio-button"><input type="radio" name="4" id="4:1">[1, 8, 0, 29, 2]</label>
-                <label for="4:2" class="radio-button"><input type="radio" name="4" id="4:2">[23, 0, 8, 9, 9]</label>
-                <label for="4:4" class="radio-button"><input type="radio" name="4" id="4:3">[1, 4, 0, 29, 2]</label>
-                <label for="4:4" class="radio-button"><input type="radio" name="4" id="4:4">[9, 4, 0, 29, 2]</label>
+                <p>How many operations does the following procedure call perform? <span class="inline-code">linearSearch(["and", "because", "many", "one", "with"], "with")</span></p>
+                <label for="1:1" class="radio-button"><input type="radio" name="1" id="1:1">2</label>
+                <label for="1:2" class="radio-button"><input type="radio" name="1" id="1:2">3</label>
+                <label for="1:3" class="radio-button"><input type="radio" name="1" id="1:3">4</label>
+                <label for="1:4" class="radio-button"><input type="radio" name="1" id="1:4">5</label>
                 <div>
                     <button class="progression" disabled>Submit</button>
                     <p class="response"></p>
                 </div>
-                <div class="answer">4:4</div>
+                <div class="answer">1:4</div>
                 <div class="explanation">
-                    <p>Since <span class="inline-code">list1[5]</span> retrieves the value 2, <span class="inline-code">list2[list1[5]]</span> is equivalent to <span class="inline-code">list2[2]</span>, which retrieves the value 0. <span class="inline-code">element</span> is assigned this value of 0.</p>
-                    <p>Since <span class="inline-code">list1[2]</span> retrieves the value 4, <span class="inline-code">element + list1[2]</span> evaluates to 4. <span class="inline-code">element + 1</span> also evaluates to 1. Thus, <span class="inline-code">list1[element + 1] ← list2[element + list1[2]]</span> is equivalent to <span class="inline-code">list1[1] ← list2[4]</span>, which assigns the first index of list1 the value located at index 4 in list2.</p>
+                    <p>
+                        Linear search checks if each value in a list is equal to a target value, iterating through the list from start to finish.
+                    </p>
+                    <p>
+                        Since <span class="inline-code">"with"</span> is at the end of the list inputted into <span class="inline-code">linearSearch</span>, and there are five elements in that list, the REPEAT UNTIL loop runs 5 times, meaning the call performs 5 operations.
+                    </p>
                 </div>
             </div>
         </div>
         <div class="content-section">
+            <div class="question multiple-choice">
+                <p>How many operations does the following call perform? <span class="inline-code">binarySearch(["and", "because", "many", "one", "with"], "with")</span></p>
+                <label for="2:1" class="radio-button"><input type="radio" name="2" id="2:1">1</label>
+                <label for="2:2" class="radio-button"><input type="radio" name="2" id="2:2">2</label>
+                <label for="2:3" class="radio-button"><input type="radio" name="2" id="2:3">3</label>
+                <label for="2:4" class="radio-button"><input type="radio" name="2" id="2:4">4</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">2:3</div>
+                <div class="explanation">
+                    <p>
+                        First, <span class="inline-code">"with"</span> is compared to the middle element of the list <span class="inline-code">"many"</span>. Since <span class="inline-code">"many"</span> comes before <span class="inline-code">"with"</span> in alphabetical order, all the elements with an index less than or equal to the middle index are removed. The elements <span class="inline-code">"one"</span> and <span class="inline-code">"with"</span> are left behind. This is one operation.
+                    </p>
+                    <p>
+                        Next, since the algorithm chooses the element with a lower index if there are two middle elements, <span class="inline-code">"one"</span> is compared to <span class="inline-code">"with"</span>. <span class="inline-code">"one"</span> comes before <span class="inline-code">"with"</span> in alphabetical order, so <span class="inline-code">"one"</span> is removed. This is another operation
+                    </p>
+                    <p>
+                        Finally, the last remaining element <span class="inline-code">"with"</span> is compared to <span>"with"</span>. Since they are equal, the procedure returns the last index of the list, which is where <span class="inline-code">"with"</span> is stored. This is the final operation.
+                    </p>
+                    <p>
+                        Summing up the operations, the procedure call performs 3 operations.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <p>The questions above demonstrate a concept called worst-case scenario.</p>
+            <fieldset>
+                <legend>Worst-case Scenario Definition</legend>
+                Scenarios where a procedure performs the maximum possible number of operations for some input size \(n\)
+            </fieldset>
+            <p>
+                The linear search call above is a worst-case scenario. Since the target value was at the end of the list in the call, the procedure had to go through every single element in the list before finding the target value. If, instead, the target value was at the start of the list in the call (i.e. <span class="inline-code">linearSearch(["with", "and", "because", "many", "one"], "with")</span>), the procedure would immediately find the target value, which would not have been a worst-case scenario.
+            </p>
+            <p>
+                The binary search call above is also a worst-case scenario.
+            </p>
+            <button class="progression">Continue</button>
+        </div>
+        <div class="content-section">
+            <div class="question multiple-choice">
+                <p>You call linear search again: <span class="inline-code">linearSearch(["and", "because", "many", "one", "with"], "with")</span>. What is the minimum number of elements you need to add to the start of this list for the procedure to perform one extra operation?</p>
+                <label for="3:1" class="radio-button"><input type="radio" name="3" id="3:1">1</label>
+                <label for="3:2" class="radio-button"><input type="radio" name="3" id="3:2">2</label>
+                <label for="3:3" class="radio-button"><input type="radio" name="3" id="3:3">3</label>
+                <label for="3:4" class="radio-button"><input type="radio" name="3" id="3:4">4</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">3:1</div>
+                <div class="explanation">
+                    <p>
+                        Every element added before the target value makes the REPEAT UNTIL loop in linear search run an extra time. Thus, each added element adds one extra operation, so you only need to add one element to add one operation.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="question multiple-choice">
+                <p>You call binary search again: <span class="inline-code">binarySearch(["and", "because", "many", "one", "with"], "with")</span>. What is the minimum number of elements you need to add to the start of this list for the procedure to perform one extra operation?</p>
+                <label for="4:1" class="radio-button"><input type="radio" name="4" id="4:1">1</label>
+                <label for="4:2" class="radio-button"><input type="radio" name="4" id="4:2">2</label>
+                <label for="4:3" class="radio-button"><input type="radio" name="4" id="4:3">3</label>
+                <label for="4:4" class="radio-button"><input type="radio" name="4" id="4:4">4</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">4:3</div>
+                <div class="explanation">
+                    <p>
+                        Each time the REPEAT UNTIL loop in binary search runs, either half or one more than half of the list is eliminated, so each time this happens, the procedure performs one operation.
+                    </p>
+                    <p>
+                        Adding 3 elements to the start of the list creates a list with 8 elements. In the first operation, the first half of the 8 elements are eliminated. 4 elements remain. In the second operation, the first half of those are eliminated. 2 remain. After the third operation, 1 remains. In the fourth and final operation, the one remaining element <span class="inline-code">"with"</span> is compared to the target value.
+                    </p>
+                    <p>
+                        Following the same logic for a list with 7 elements: 3 operations are performed on a list with 7 elements. 3 operations were also performed for the original 5-element list.
+                    </p>
+                    <p>
+                        Thus, you need to add a minimum of 3 elements to the list to add one operation.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="question multiple-choice">
+                <p>You call binary search one final time with a list of 8 elements. Assuming the worst-case scenario, what is the minimum number of elements you need to add to this list for the procedure to perform one extra operation?</p>
+                <label for="5:1" class="radio-button"><input type="radio" name="5" id="5:1">1</label>
+                <label for="5:2" class="radio-button"><input type="radio" name="5" id="5:2">16</label>
+                <label for="5:3" class="radio-button"><input type="radio" name="5" id="5:3">3</label>
+                <label for="5:4" class="radio-button"><input type="radio" name="5" id="5:4">8</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">5:4</div>
+                <div class="explanation">
+                    <p>
+                        Following the same logic as in the explanation for the previous problem, binary search performs 5 operations on a list of 16 elements (8 elements from the original list + the 8 elements you added).
+                    </p>
+                    <p>
+                        Binary search will perform 4 operations for any list with 8 to 15 elements.
+                    </p>
+                    <p>
+                        Thus, you need to add a minimum of 8 elements to the list to add an operation.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="question multiple-choice">
+                <p>For a list with \(n\) number of elements, how many operations will linear search perform in the worst-case scenario?</p>
+                <label for="6:1" class="radio-button"><input type="radio" name="6" id="6:1">\(n\)</label>
+                <label for="6:2" class="radio-button"><input type="radio" name="6" id="6:2">\(n^2\)</label>
+                <label for="6:3" class="radio-button"><input type="radio" name="6" id="6:3">\(2n\)</label>
+                <label for="6:4" class="radio-button"><input type="radio" name="6" id="6:4">\(n-1\)</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">6:1</div>
+                <div class="explanation">
+                    <p>
+                        In the worst-case scenario, every element in the list of \(n\) elements must be checked. Thus, linear search will perform \(n\) operations for a list of \(n\) elements.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="question multiple-choice">
+                <p>For a list with \(n\) number of elements, how many operations will binary search perform in the worst-case scenario?</p>
+                <p>
+                    Log is the inverse function of an exponent, so the following equation is true:<br>
+                    \(\log_y(y^{x})=x\)
+                </p>
+                <p>
+                    \(\text{floor}(x)\) rounds \(x\) to the nearest integer less than or equal to \(x\), and \(\text{ciel}(x)\) rounds \(x\) to the nearest integer greater than or equal to \(x\).
+                </p>
+                <label for="7:1" class="radio-button"><input type="radio" name="7" id="7:1">\(\text{ciel}(\log_2(n))\)</label>
+                <label for="7:2" class="radio-button"><input type="radio" name="7" id="7:2">\(\log_2(n)\)</label>
+                <label for="7:3" class="radio-button"><input type="radio" name="7" id="7:3">\(\text{floor}(\log_2(n))+1\)</label>
+                <label for="7:4" class="radio-button"><input type="radio" name="7" id="7:4">\(\log_2(n)+1\)</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <button class="hint-button">Hint</button>
+                    <p class="response"></p>
+                </div>
+                <div class="hint">
+                    <p>
+                        Notice how the number of operations increase by one at each power of 2 number of list elements. \(n=2^1=2\) list elements require 2 operations, \(n=2^2=4\) require 3 operations, \(n=2^3=8\) require 4 operations, and so on.
+                    </p>
+                </div>
+                <div class="answer">7:3</div>
+                <div class="explanation">
+                    <p>
+                        Notice how the number of operations increase by one at each power of 2 number of list elements. \(n=2^1=2\) list elements require 2 operations, \(n=2^2=4\) require 3 operations, \(n=2^3=8\) require 4 operations, and so on.
+                    </p>
+                    <p>
+                        By using the inverse function of the exponent, \(\log\), we can find which power of 2 equals \(n\). \(\log_2(n)\) is a good start.
+                    </p>
+                    <p>
+                        However, \(\log_2(n)\) outputs one less operation than the actual amount for each power of 2 number of list elements (e.g. \(\log_2(8)\) outputs 3 but 4 operations are performed in actuality on a list of 8 elements). Thus, we need to add 1 to this log: \(\log_2(n)+1\).
+                    </p>
+                    <p>
+                        For any \(n\) between two powers of 2, \(\log_2(n)+1\) outputs a decimal number greater than the output for the power of 2 less than \(n\), which is nonsense because there cannot be a decimal amount of operations! Since any \(n\) between a power of 2 number of list elements require the same amount of operations as the closest power of 2 less than \(n\) list elements, the \(\log_2(n)\) can be surrounded by a \(\text{floor}\) function to get the correct number of operations binary search performs on a list of \(n\) elements: \(\text{floor}(\log_2(n))+1\).
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <p>
+                Going back to our digital library of books, let's say the library contains 129,864,880 books, with each book containing 100,000 words. You need to search a list of 12,986,488,000,000 words (129,864,880 books times 100,000 words) for specific keywords.
+            </p>
+            <p>
+                Your computer has a CPU that can perform 3,700,000,000 operations per second. You run binary and linear search on your computer.
+            </p>
+            <div class="question open-ended">
+                <p>Using the formulas we built in the last two problems, how many seconds would it take <b>linear search</b> to find a keyword in this list of words in the worst-case scenario? Round your answer to the nearest integer. Use a calculator!</p>
+                <input type="text" placeholder="Type a number. Do not use any commas.">
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">3510</div>
+                <div class="explanation">
+                    <p>
+                        The number of operations linear search performs is the same as the number of elements in the inputted list. Thus, we only need to divide the list length by 3,700,000,000.
+                    </p>
+                    <p>
+                        \(12,986,488,000,000\div3,700,000,000\approx3510\)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="question open-ended">
+                <p>How many seconds would it take <b>binary search</b> to find a keyword in this list of words in the worst-case scenario? Round your answer to the nearest integer. Use a calculator!</p>
+                <input type="text" placeholder="Type a number. Do not use any commas.">
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">0</div>
+                <div class="explanation">
+                    <p>
+                        Plugging the number of elements in the list into the binary search operations formula, we get:<br>
+                        \(\text{floor}(\log_2(12,986,488,000,000))+1=44\)
+                    </p>
+                    <p>
+                        Dividing this number by 3,700,000,000, we get:<br>
+                        \(44\div3,700,000,000\approx0\)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <p>Notice the giant difference in run times for binary and linear search. Linear search takes approximately an hour to search the library, while binary search takes mere milliseconds!</p>
+            <button class="progression">Continue</button>
+        </div>
+        <div class="content-section">
+            <p>While binary search may seem like the go-to algorithm for searching a list, it requires the list to be sorted first.</p>
+            <p>\(n^2\) describes the worst-case scenario efficiency of a sorting algorithm.</p>
+            <p></p>
+            <div class="question multiple-choice">
+                <p>Let's say we have a list with 10 unsorted elements. What is the minimum number of binary and linear searches that must be made for the total number of operations performed by those linear searches to exceed the total number of operations performed by both those binary searches and the sorting algorithm?</p>
+                <p>The sorting algorithm is only run once and assume worst-case scenario.</p>
+                <label for="8:1" class="radio-button"><input type="radio" name="8" id="8:1">10</label>
+                <label for="8:2" class="radio-button"><input type="radio" name="8" id="8:2">1</label>
+                <label for="8:3" class="radio-button"><input type="radio" name="8" id="8:3">16</label>
+                <label for="8:4" class="radio-button"><input type="radio" name="8" id="8:4">17</label>
+                <div>
+                    <button class="progression" disabled>Submit</button>
+                    <p class="response"></p>
+                </div>
+                <div class="answer">8:4</div>
+                <div class="explanation">
+                    <p>
+                        One run of the sorting algorithm costs 100 operations (\(10^2\)). Every run of binary search costs 4 operations (\(\text{floor}(\log_2(10))+1=4\)).
+                    </p>
+                    <p>
+                        Every run of linear search costs 10 operations.
+                    </p>
+                    <p>
+                        \(x\) runs of linear search on the list costs \(10x\) operations.
+                        \(x\) runs of binary search on the list costs \(4x+100\) operations.
+                    </p>
+                    <p>
+                        We can solve those two linear equations for the value of \(x\) at which they are equal:
+                        $$10x=4x+100$$
+                        $$6x=100$$
+                        $$x\approx16.67$$
+                    </p>
+                    <p>
+                        Since the equation for the total cost of \(x\) runs of linear search has a larger slope than the equation for binary search, the cost of binary search falls under linear search for any \(x\) over 16.67. 17 is closest integer greater than 16.67, so 17 is the answer.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section">
+            <p>Binary search is only worth using when either the list you have is already sorted or you need to search the list many times.</p>
+            <button class="progression">Continue</button>
+        </div>
+        <div class="content-section">
+            <p>
+                An algorithm's efficiency is often described by formulas like the ones you made above. We often say an algorithm's efficiency is a function of \(n\) (\(f(n)\)) where \(n\) is the input size. In the case of binary and linear search, the input size is the number of elements in the inputted lists.
+            </p>
+            <p>
+                When the function \(f(n)\) that describes an algorithm's efficiency is a polynomial, we say that that algorithm runs in polynomial time. Similarly for exponential and factorial functions.
+            </p>
+            <button class="progression">Continue</button>
+        </div>
+        <div class="content-section">
+            <p class="little-bottom-margin">
+                Algorithms are classified into either reasonable or unreasonable time based on the functions that describe their efficiency.
+            </p>
+            <ul>
+                <li>
+                    Polynomial time or lower algorithms run in <b>reasonable time</b>.
+                </li>
+                <li>
+                    Exponential or factorial time or higher algorithms run in <b>unreasonable time</b>.
+                </li>
+            </ul>
+            <button class="progression">Continue</button>
+        </div>
+        <div class="content-section">
+            <p>When a problem cannot be solved in reasonable time, heuristics are often used.</p>
+            <fieldset>
+                <legend>Heuristic Definition</legend>
+                A technique used to solve a problem that may not be completely accurate when 100% accurate solutions are impractical
+            </fieldset>
+            <button class="progression">Continue</button>
+        </div>
+        <div class="content-section">
+            <p>Unfortunately, the list of words from the digital library is unsorted, so you will need to make a decision: to use binary search or to use linear search.</p>
+            <a href="/sections/summaries/3-17.html" class="button-link">Summary Notes</a>
             <a href="/index.html" class="button-link">Finish Lesson</a>
         </div>
     </body>

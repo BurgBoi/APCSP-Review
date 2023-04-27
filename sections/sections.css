@@ -77,6 +77,10 @@ button:hover:not(:disabled) {
     cursor: pointer;
 }
 
+.little-bottom-margin {
+    margin-bottom: 1px;
+}
+
 .inline-code {
     background-image: linear-gradient(rgba(0, 0, 0, .1) 0 0);
     font-family: monospace;
@@ -161,19 +165,25 @@ button:hover:not(:disabled) {
     outline: none;
 }
 
-.explanation {
+.explanation, .hint {
     display: none;
     flex-direction: column;
     margin-top: 20px;
 }
 
-.explanation > * {
+.explanation > *, .hint > * {
     margin: 5px 0;
 }
 
 .explanation::before {
     display: block;
     content: "Explanation";
+    font-size: 20px;
+}
+
+.hint::before {
+    display: block;
+    content: "Hint";
     font-size: 20px;
 }
 
